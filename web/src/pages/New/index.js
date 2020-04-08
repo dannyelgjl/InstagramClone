@@ -44,31 +44,31 @@ class Feed extends Component {
           type="text"
           name="author"
           placeholder="Autor do post"
-          value={this.state.autho}
           onChange={this.handleChange}
+          value={this.state.author}
         />
         <input
           type="text"
           name="place"
           placeholder="Local do post"
-          value={this.place}
           onChange={this.handleChange}
+          value={this.state.place}
         />
 
         <input
           type="text"
           name="description"
           placeholder="Descrição do post"
-          value={this.description}
           onChange={this.handleChange}
+          value={this.state.description}
         />
 
         <input
           type="text"
           name="hashtags"
           placeholder="Hashtags do post"
-          value={this.hashtags}
           onChange={this.handleChange}
+          value={this.state.hashtags}
         />
 
         <button type="submit">Enviar</button>
