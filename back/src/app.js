@@ -9,30 +9,31 @@ import "./database";
 
 class App {
   constructor() {
-    this.server = express();
-    this.serv = Server(this.server);
-    this.io = socketio(this.serv);
+    this.app = express();
+    this.server = Server(this.app);
+    this.io = socketio(this.server);
 
     this.middleware();
     this.routes();
   }
 
   middleware() {
-    this.server.use((req, res, next) => {
+    this.app.use((req, res, next) => {
       req.io = this.io;
 
       next();
     });
-    this.server.use(express.json());
-    this.server.use(
+
+    this.app.use(express.json());
+    this.app.use(
       "/files",
       express.static(resolve(__dirname, "..", "uploads", "resized"))
     );
-    this.server.use(cors());
+    this.app.use(cors());
   }
 
   routes() {
-    this.server.use(routes);
+    this.app.use(routes);
   }
 }
 
