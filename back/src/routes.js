@@ -7,6 +7,7 @@ import PostController from "./app/controllers/PostController";
 const routes = new Router();
 const upload = multer(uploadsConfig);
 
+routes.get("/posts", PostController.index);
 routes.post("/posts", upload.single("image"), PostController.store);
 
 export default routes;
